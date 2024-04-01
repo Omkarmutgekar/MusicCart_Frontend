@@ -3,8 +3,6 @@ import styles from "./Banner.module.css";
 
 import Banner from "/images/banner/Rectangle 3.png"
 import Vector from "/images/banner/vector.png"
-
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

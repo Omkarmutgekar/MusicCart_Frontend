@@ -4,33 +4,34 @@ import { setIsMobile } from "./redux/Slices/UiSlice";
 import { ToastContainer, Zoom } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Signup from "./pages/Auth/SignUp/SignUp";
+import Register from "./pages/Auth/Register/Register";
 import Login from "./pages/Auth/Login/Login";
-import Home from "./pages/home/Home";
+import HomePage from "./pages/HomePage/HomePage";
 import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import Success from "./pages/OrderSucces/Success";
-import AddProduct from "./pages/AddProduct/AddProduct";
-import InvoiceCard from "../src/Components/InvoiceCard/InvoiceCard";
-import { Footer, ProductDetails } from "./Components/index";
+import AddNewProduct from "./pages/AddNewProduct/AddNewProduct";
+import Invoice from "../src/Components/Invoice/Invoice";
+import { Footer, ProductView } from "./Components/index";
 
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isMobile } = useSelector((state) => state.ui);
+  const { isMobileDevice } = useSelector((state) => state.ui);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleWindowResize = () => {
       dispatch(setIsMobile(window.innerWidth <= 520));
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleWindowResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleWindowResize);
     };
   }, [dispatch]);
+
   return (
     <Router>
       <ToastContainer
@@ -38,19 +39,22 @@ const App = () => {
         position="top-center"
         autoClose={3000}
       />
-     
       <Routes>
-        <Route path="/add-product" element={<AddProduct />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/add-product" element={<AddNewProduct />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+{/*           <Route path="/:productId" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} /> */}
         <Route path="/:productId" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-success" element={<Success />} />
-        <Route path="/invoice-card" element={<InvoiceCard/>} />
+        {/* <Route path="/invoice-card" element={<InvoiceCard/>} /> */}
+        <Route path="/invoice" element={<Invoice />} />
       </Routes>
-      {!isMobile && <Footer />}
+      {!isMobileDevice && <Footer />}
     </Router>
   );
 };

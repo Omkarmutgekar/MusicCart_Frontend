@@ -16,7 +16,12 @@
 }
 
 .feedbackImage{
-  width:122px;
+  margin:5rem;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background-color:white;
+  box-shadow:  #0000005E;
 }
 
 .modalContent{

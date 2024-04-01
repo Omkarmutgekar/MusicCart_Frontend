@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className={styles.container}>
       <div className={styles.logo}>
-      <a style={{textDecoration:"none",color:"white"}} href="tel:123-456-7890">+91 123-456-7890</a>
+      <a style={{textDecoration:"none",color:"white"}} href="tel:092517822100">+91 123-456-7890</a>
       </div>
       <div className={styles.btns}>
         <p>Get 50% off on selected items</p>

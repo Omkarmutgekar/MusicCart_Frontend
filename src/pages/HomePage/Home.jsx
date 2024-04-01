@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./Home.module.css";
+import {User} from 'react-feather'
+
+
 
 import {
   Banner,
@@ -24,11 +27,6 @@ const Home = () => {
         setShowModal(!showModal);
     };
 
-    // const closeModal = () => {
-    //     setShowModal(false);
-    // };
-
-
 
   return (
     <div className={styles.container}>
@@ -40,7 +38,8 @@ const Home = () => {
       {isMobile && <MobileFooter />}
       
         <div className={styles.feedback}>
-            <img  src="src/pages/home/feedback.jpg" alt="Feedback" className={styles.feedbackImage} onClick={handleImageClick} />
+            {/* <img  src="src/pages/home/feedback.jpg" alt="Feedback" className={styles.feedbackImage} onClick={handleImageClick} /> */}
+            <User alt="Feedback" className={styles.feedbackImage} onClick={handleImageClick} />
             {showModal && <div className={styles.modal}>
                 <div className={styles.modalContent}>
                     {/* <span className={styles.close} onClick={closeModal}>&times;</span> */}
